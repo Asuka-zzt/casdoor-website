@@ -139,6 +139,8 @@ When you exchange the authorization code for tokens, include the same `resource`
 
 The resulting access token will have its `aud` (audience) claim set to your resource URI instead of the client ID. Your backend service can then verify that tokens were issued specifically for it by checking the audience claim. The resource must match exactly between the authorization and token requests.
 
+The `resource` parameter is preserved through browser-based login flows. If a user needs to complete an interactive login (e.g. password entry, MFA, or WebAuthn), the parameter is carried through the entire redirect chain and included when the authorization code is issued.
+
 #### provider_hint parameter
 
 To skip the Casdoor login page and send the user directly to a specific OAuth provider, add `provider_hint=<provider-name>` to the authorize URL:

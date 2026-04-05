@@ -126,7 +126,6 @@ Below are all the fields available as account items. Each field can be independe
 | `Signup application` | The application the user originally signed up through. |
 | `Register type` | The method used to register the account (e.g. email, phone, OAuth). |
 | `Register source` | The channel or provider through which the user registered (e.g. Google, GitHub, invite link). |
-| `API key` | The user's API access key. Only visible and editable by the user themselves. |
 | `Roles` | The roles assigned to this user, which determine access within Casdoor. |
 | `Permissions` | The permissions explicitly granted to this user. |
 | `Groups` | The user groups this user belongs to. |

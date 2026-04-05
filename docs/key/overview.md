@@ -36,6 +36,8 @@ When creating a key, Casdoor auto-generates the Access key and Access secret. Co
 
 Set **State** to `Inactive` to temporarily disable a key without deleting it.
 
+The **Owner** field of an existing key can only be changed by a global admin. Non-global-admin users cannot reassign a key to a different owner; such requests are rejected with an authorization error.
+
 :::caution
 
 Treat the Access secret like a password. Store it in a secrets manager and never commit it to source control.

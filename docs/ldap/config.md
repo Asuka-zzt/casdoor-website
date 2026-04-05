@@ -19,7 +19,7 @@ LDAP is configured per organization; synced users are created in that organizati
 | **Server host** | Host or IP of the LDAP server (e.g. `example.com`). |
 | **Server port** | Port number, numeric only (e.g. `389`). |
 | **Base DN** | Base distinguished name for search. Casdoor uses subtree search and returns all users under this DN. The admin account must have at least read access at this base (e.g. `ou=Example,dc=example,dc=com`). |
-| **Search filter** | LDAP filter for user search (e.g. `(objectClass=posixAccount)`). |
+| **Search filter** | LDAP filter for user search (e.g. `(objectClass=posixAccount)`). If the filter contains `{}` (a placeholder used by some LDAP configurations, e.g. `(uid={})`), Casdoor replaces it with `*` when listing users, treating it as a wildcard. |
 | **Filter fields** | LDAP attributes used to identify the user (e.g. `uid`, `mail`, `mobile`). The value entered at Casdoor login is matched against these; typically `uid` is used as the login name. |
 | **Admin** | Bind DN or ID for the LDAP admin (depends on server; e.g. `cn=manager,dc=example,dc=com`). |
 | **Admin password** | Password for the admin account. |
