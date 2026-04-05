@@ -139,6 +139,22 @@ When you exchange the authorization code for tokens, include the same `resource`
 
 The resulting access token will have its `aud` (audience) claim set to your resource URI instead of the client ID. Your backend service can then verify that tokens were issued specifically for it by checking the audience claim. The resource must match exactly between the authorization and token requests.
 
+#### provider_hint parameter
+
+To skip the Casdoor login page and send the user directly to a specific OAuth provider, add `provider_hint=<provider-name>` to the authorize URL:
+
+```url
+https://<CASDOOR_HOST>/login/oauth/authorize?
+client_id=CLIENT_ID&
+redirect_uri=REDIRECT_URI&
+response_type=code&
+scope=openid&
+state=STATE&
+provider_hint=github
+```
+
+Casdoor serves a lightweight redirect page (without loading the full React app) that immediately bounces the user to that provider's OAuth flow. This reduces time-to-redirect on constrained devices or slow connections.
+
 #### Signup Flow with OAuth
 
 When users sign up through the OAuth authorization flow, they are automatically redirected to your application's callback URL with the authorization code, just like the sign-in flow. Previously, users had to manually click through intermediate pages after creating their account. Now the signup process matches the streamlined experience of signing in—once registration completes, Casdoor immediately generates the authorization code and redirects to your `redirect_uri`.

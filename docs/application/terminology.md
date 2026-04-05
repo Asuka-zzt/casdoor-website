@@ -74,6 +74,18 @@ The application edit page is split into eight tabs. Fields below are grouped by 
 
 - **Providers** — OAuth, email, SMS, storage, and other providers attached to this application. Controls which sign-in methods and integrations are available.
 
+Each OAuth / Web3 / SAML provider entry in the provider table has additional per-provider settings:
+
+| Column | Description |
+|--------|-------------|
+| **Can sign up** | Allow new users to register via this provider. |
+| **Can sign in** | Allow existing users to sign in via this provider. |
+| **Can unlink** | Allow users to unlink this provider from their account. |
+| **Binding rule** | Fields used to match an OAuth identity to an existing Casdoor user. Available fields: `Email`, `Phone`, `Name`. Checked in order — the first match links the accounts. Default is `Email`, `Phone`, `Name`. Only applies to OAuth, Web3, and SAML providers. |
+| **Country codes** | Restrict phone-based providers to specific country calling codes. |
+| **Prompted** | Show a prompt asking users to bind this provider after sign-up if they haven't already. |
+| **Signup group** | Override the application's Default group for users who sign up via this provider. |
+
 ## UI Customization
 
 - **Org choice mode** — How users select their organization at sign-in: `None`, `Select` (dropdown), or `Input` (text field).
@@ -96,7 +108,7 @@ The application edit page is split into eight tabs. Fields below are grouped by 
 
 - **Token cert** — Certificate used to sign tokens issued by this application.
 - **Client cert** — Certificate used to verify client identity. For mutual TLS it authenticates the client connection; for the JWT Bearer grant (RFC 7523), the public key in this certificate is used to verify the client's JWT assertion signature.
-- **Failed signin limit** — Number of consecutive failed sign-in attempts before the account is locked.
+- **Failed signin limit** — Number of consecutive failed sign-in attempts before the account is locked. This limit also applies to the `/api/verify-code` OTP endpoint: too many wrong verification codes will temporarily block that user+destination combination using the same counter and freeze time.
 - **Failed signin frozen time** — Lock duration in minutes after hitting the failed sign-in limit.
 - **Code resend timeout** — Seconds a user must wait before requesting another verification code (default: 60; set to 0 for the global default).
 - **IP whitelist** — Comma-separated list of allowed IP addresses or CIDR ranges. Overrides the organization-level whitelist. See [IP allowlist](/docs/ip-whitelist/ip-whitelist).
