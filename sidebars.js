@@ -457,6 +457,7 @@ module.exports = {
         "syncer/Keycloak",
         "syncer/Okta",
         "syncer/SCIM",
+        "syncer/AWSIAM",
         "syncer/WeCom",
         "syncer/DingTalk",
         "syncer/Lark",

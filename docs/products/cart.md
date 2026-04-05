@@ -34,6 +34,12 @@ Each item has a **Buy** button to purchase that product alone or a **Delete** bu
 
 To remove all items at once, click **Clear** at the top of the cart. A confirmation prompt is shown before the cart is emptied.
 
+## Invalid cart items
+
+If a product is deleted, renamed, or its currency is changed after it was added to the cart, the cart item is marked as **invalid**. Invalid items are shown in red and display "Invalid product" in place of the display name. The order total excludes invalid items.
+
+Placing an order is blocked while any invalid item remains in the cart. Remove invalid items with the **Delete** button before proceeding to checkout.
+
 ## Placing orders from cart
 
 Click **Buy** next to any item to purchase it individually. Use the **Place Order** button at the top of the cart to initiate payment for all items at once—each item is processed as a separate order. After all orders are placed, the cart is cleared automatically.

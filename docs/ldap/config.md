@@ -24,6 +24,7 @@ LDAP is configured per organization; synced users are created in that organizati
 | **Admin** | Bind DN or ID for the LDAP admin (depends on server; e.g. `cn=manager,dc=example,dc=com`). |
 | **Admin password** | Password for the admin account. |
 | **Auto sync** | `0` = disabled. Any other value = sync interval in minutes. |
+| **Enable groups** | When enabled, Casdoor syncs LDAP groups and OUs as Casdoor groups and assigns users to them. |
 
 ![LDAP_field](/img/ldap/ldap_field.gif)
 
@@ -32,6 +33,12 @@ LDAP is configured per organization; synced users are created in that organizati
 The sync table lists users under the configured base DN. Already-synced users are shown with the checkbox disabled. Select users and sync to import them into the organization.
 
 ![ldap_sync](/img/ldap/ldap_sync.png)
+
+## Group and OU sync
+
+When **Enable groups** is turned on, Casdoor queries the LDAP directory for group objects before syncing users. It searches the base DN for entries with any of the following object classes: `groupOfNames`, `groupOfUniqueNames`, `posixGroup`, and (for Active Directory) `group`. Each matching entry is created as a Casdoor group. Users are then assigned to the groups their `memberOf` attribute lists.
+
+Group sync runs before user sync in each auto-sync cycle so that groups exist before user membership is evaluated. If a group lookup fails, the error is logged and the rest of the sync continues.
 
 ## Default group
 

@@ -42,6 +42,10 @@ The database-related fields (database type, port, table name, etc.) are not used
 | `job_title` | `Title` | Job title |
 | `gender` | `Gender` | 1 = Male, 2 = Female |
 
+## OAuth login binding
+
+When a user is synced from Lark, their Lark `user_id` is stored in the `lark` field on the Casdoor user. Synced users can sign in via the Lark OAuth provider without a separate account link step.
+
 ## Running the syncer
 
 Click **Test Connection** to verify your App ID and Secret before enabling. Toggle **Is enabled** for scheduled sync, or click **Sync** to run immediately.

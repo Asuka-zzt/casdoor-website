@@ -58,6 +58,10 @@ The DingTalk syncer also synchronizes departments as Casdoor groups. For each de
 
 Department discovery is **recursive**: starting from the root department, the syncer calls `topapi/v2/department/listsub` for each parent department and traverses the full tree depth. This ensures that sub-departments nested at any level are included, not just the immediate children of root. Department details are then fetched individually via `topapi/v2/department/get`. If a department lookup fails, it is skipped and the rest of the sync continues.
 
+## OAuth login binding
+
+When a user is synced from DingTalk, their DingTalk `unionid` is stored in the `dingtalk` field on the Casdoor user. Synced users can therefore sign in via the DingTalk OAuth provider without a separate account link step.
+
 ## Running the Syncer
 
 Enable the syncer through the **Is enabled** toggle to activate scheduled synchronization. For immediate imports, click the **Sync** button to trigger a manual synchronization run.

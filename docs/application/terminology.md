@@ -51,7 +51,9 @@ The application edit page is split into eight tabs. Fields below are grouped by 
 - **Token format** — `JWT`, `JWT-Empty`, `JWT-Custom`, or `JWT-Standard`. See [Token overview](/docs/token/overview).
 - **Token signing method** — Signing algorithm: RS256, RS512, ES256, ES384, or ES512.
 - **Token fields** — Additional user fields included in the token payload (available when format is `JWT-Custom`).
-- **Token attributes** — Custom key/value claims added to the token (available when format is `JWT-Custom`).
+- **Token attributes** — Custom claims added to the token (available when format is `JWT-Custom`). Each row has a **Category**, **Value**, and **Type**:
+  - **Category: Static Value** — the Value field is a template string (supports `${user.xxx}` substitution). Type controls whether the claim is a `String` or `Array`.
+  - **Category: Existing Field** — the Value field is a dropdown of known user fields (`Owner`, `Name`, `Id`, `DisplayName`, `Email`, `Phone`, `Tag`, `Roles`, `Permissions`, `Groups`, etc.). Casdoor reads the field directly from the user object at token issuance. Properties sub-fields are referenced as `Properties.<key>`.
 - **Token expire** — Access token lifetime in hours.
 - **Refresh token expire** — Refresh token lifetime in hours.
 
