@@ -707,6 +707,22 @@ module.exports = {
     },
     {
       type: "category",
+      label: "Agents",
+      link: {type: "generated-index"},
+      items: [
+        "agent/overview",
+      ],
+    },
+    {
+      type: "category",
+      label: "Entries",
+      link: {type: "generated-index"},
+      items: [
+        "entry/overview",
+      ],
+    },
+    {
+      type: "category",
       label: "Monitoring",
       link: {type: "generated-index"},
       items: [

@@ -77,3 +77,7 @@ POST /api/mcp
   "method": "notifications/initialized"
 }
 ```
+
+## MCP Store
+
+The **MCP Store** page (accessible from the sidebar under **Servers → Store**) shows a curated list of publicly available MCP servers sourced from an online registry. You can browse by name or tag, then click **Add** to create a local Server record pre-filled with the server's URL and metadata. After adding, configure the authentication token and tool permissions on the server edit page as needed.

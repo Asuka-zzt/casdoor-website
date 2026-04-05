@@ -7,9 +7,13 @@ authors: [OutOfEastGate]
 
 Casdoor exposes runtime metrics on the **Sysinfo** page (e.g. [door.casdoor.com/sysinfo](https://door.casdoor.com/sysinfo)):
 
-- **CPU and memory usage**
+- **CPU and memory usage** — progress bars turn yellow at 70% and red at 90%
 
   ![Usage Info](/img/monitoring/web-ui/usage_info.png)
+
+- **Disk usage** — bytes used in the `data/` directory vs. total capacity of the filesystem where it lives
+
+- **Network I/O** — cumulative bytes read and written by the Casdoor process (from OS-level I/O counters)
 
 - **API latency** — request counts and average latency per API
 
