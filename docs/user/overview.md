@@ -60,6 +60,7 @@ Casdoor manages user accounts. Each user has the following properties:
 - `Roles`: An array of the user's roles (extended field, read-only via User API)
 - `Permissions`: An array of the user's permissions (extended field, read-only via User API)
 - `OriginalRefreshToken`: The refresh token returned by the OAuth provider during the last social login. Stored for use cases that require calling the provider's API on behalf of the user. This field is masked as `***` in all API responses for security.
+- `Addresses`: A list of structured address entries. Each address has a **Tag** (Home, Work, Other), **Line 1**, **Line 2**, **City**, **State**, **Zip code**, and **Region**. Users can manage their addresses from the account profile page.
 
 Unique IDs for social platform logins:
 

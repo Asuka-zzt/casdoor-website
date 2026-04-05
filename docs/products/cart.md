@@ -21,7 +21,7 @@ All items in the cart must use the same currency. Adding a product in a differen
 
 ## Managing the cart
 
-Open the cart via **Carts** in the Business & Payments section. The cart page shows:
+Open the cart via **Cart** in the Business & Payments section. The cart page shows:
 
 - Product name and display name
 - Product image
@@ -29,6 +29,8 @@ Open the cart via **Carts** in the Business & Payments section. The cart page sh
 - Quantity (managed automatically)
 
 Each item has a **Buy** button to purchase that product alone or a **Delete** button to remove it. Quantities are tracked automatically—adding the same product at the same price increases the quantity instead of creating duplicate rows.
+
+To remove all items at once, click **Clear** at the top of the cart. A confirmation prompt is shown before the cart is emptied.
 
 ## Placing orders from cart
 

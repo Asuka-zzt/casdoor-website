@@ -454,8 +454,11 @@ module.exports = {
         "syncer/ActiveDirectory",
         "syncer/GoogleWorkspace",
         "syncer/Keycloak",
+        "syncer/Okta",
+        "syncer/SCIM",
         "syncer/WeCom",
         "syncer/DingTalk",
+        "syncer/Lark",
       ],
     },
     {
