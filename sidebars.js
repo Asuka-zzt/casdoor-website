@@ -28,6 +28,15 @@ module.exports = {
     },
     {
       type: "category",
+      label: "LLM",
+      link: {type: "generated-index"},
+      items: [
+        "llm/openclaw",
+        "llm/mcp-security",
+      ],
+    },
+    {
+      type: "category",
       label: "Deployment",
       link: {type: "generated-index"},
       items: [
