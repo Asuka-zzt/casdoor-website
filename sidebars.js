@@ -174,6 +174,7 @@ module.exports = {
         "mcp-auth/overview",
         "mcp-auth/setup",
         "mcp-auth/third-party-integration",
+        "mcp-auth/mcp-registry",
       ],
     },
     {
