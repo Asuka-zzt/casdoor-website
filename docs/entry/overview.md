@@ -21,16 +21,18 @@ authors: [hsluoyz]
 
 ## OpenTelemetry traces
 
-Casdoor exposes `/api/v1/traces` to receive OpenTelemetry trace data over HTTP in OTLP protobuf format:
+Casdoor exposes `/api/v1/traces` to receive OpenTelemetry trace data pushed by an OpenClaw agent:
 
 ```
 POST /api/v1/traces
 Content-Type: application/x-protobuf
 ```
 
-Each received request is stored as a single `trace`-type entry. The entry name is set to the first trace ID found in the payload. The raw OTLP protobuf is converted to JSON and stored in the `Message` field.
+**Access control:** The sender's IP must match the **Host** field of an [Agent/OpenClaw Log provider](/docs/provider/log/overview#agent-openclaw) configured in the same organization. Requests from unrecognized IPs are rejected with `403 Forbidden`. Set Host to empty on the provider to allow any IP.
 
-On the entry edit page, the **EntryMessageViewer** renders `trace`-type entries as a structured span tree with timing, attributes, and status, instead of showing the raw JSON.
+Each received request is stored as a single `trace`-type entry. The entry name is set to the first trace ID found in the payload. The raw OTLP protobuf is serialized to JSON and stored in the `Message` field.
+
+On the entry edit page, the **EntryMessageViewer** renders `trace`-type entries as a structured span tree with timing, attributes, and status, rather than raw JSON.
 
 ## Permission audit logs
 

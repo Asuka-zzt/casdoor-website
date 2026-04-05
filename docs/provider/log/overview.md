@@ -1,62 +1,53 @@
 ---
 title: Log providers
-description: Forward permission audit events to external logging backends or Casdoor Entry records.
-keywords: [log, provider, permission, audit, syslog]
+description: Collect OS logs and permission audit events into Casdoor Entry records.
+keywords: [log, provider, permission, audit, syslog, system log, OpenClaw]
 authors: [hsluoyz]
 ---
 
-**Log providers** (Category: **Log**) forward permission enforcement events to an external logging backend. Each non-GET API call that passes through Casdoor's authorization filter generates one log entry recording the subject, HTTP method, URL path, and whether access was allowed or denied.
+**Log providers** (Category: **Log**) collect or receive log data and store each record as a Casdoor [Entry](/docs/entry/overview).
 
-Log providers are applied at the organization level. All Log providers configured for an organization receive every enforcement event for that org.
+There are two kinds:
+
+- **Push-based** — Casdoor writes one entry per authorization event (Casdoor Permission Log).
+- **Pull-based** — a background collector reads log records from an external source and stores them as entries (System Log, Agent/OpenClaw).
 
 ## Provider types
 
 ### Casdoor Permission Log
 
-Stores enforcement events directly in Casdoor as [Entry](/docs/entry/overview) records. No external service is required.
+Records every non-GET API call that passes through Casdoor's authorization filter. Each call produces one entry containing the subject, HTTP method, URL path, and whether access was allowed or denied.
 
-| Field | Value |
-|-------|-------|
-| **Category** | Log |
-| **Type** | Casdoor Permission Log |
+No configuration fields are required. Create a provider of this type and enforcement events start flowing immediately.
 
-Each enforcement event produces one entry with:
-- **Type**: `permission`
-- **Message**: `[info] sub=<owner>/<user> method=<METHOD> url=<path> objOwner=<org> allowed=true` (or `[warning]` when denied)
+**Entry format:**
+```
+[info]    sub=<owner>/<user> method=<METHOD> url=<path> objOwner=<org> allowed=true
+[warning] sub=<owner>/<user> method=<METHOD> url=<path> objOwner=<org> allowed=false
+```
 
-This is the simplest setup — just create a provider of this type and no additional configuration is needed.
+### System Log
 
-### Linux Syslog
-
-Sends log lines to a local or remote syslog daemon.
-
-:::note
-Linux Syslog support is not yet implemented. This type is reserved for a future release.
-:::
-
-## Configuration
+Reads records from the operating system's native log facility — **journald/syslog** on Linux/Unix and **Windows Event Log** on Windows — and stores each record as an Entry. The collector starts automatically when Casdoor starts and runs in the background.
 
 | Field | Description |
 |-------|-------------|
-| **Host** | Syslog server host or IP (e.g. `127.0.0.1`) |
-| **Port** | Syslog server port |
-| **Title** | Log tag / app name included in each syslog line (e.g. `casdoor`) |
+| **Title** | Log tag used to filter records (e.g. `casdoor`). Leave empty to collect all records. |
 
-For **Casdoor Permission Log**, these fields are not used.
+### Agent (OpenClaw)
 
-## Log format
+Receives OpenTelemetry trace data pushed by an [OpenClaw](https://openclaw.io) agent via the `/api/v1/traces` endpoint. Only requests from the configured IP are accepted; all other senders get a 403.
 
-Each log line follows this format:
+| Field | Description |
+|-------|-------------|
+| **Sub type** | `OpenClaw` |
+| **Host** | IP address of the OpenClaw agent (e.g. `192.168.1.100`). Leave empty to allow any IP. |
 
-```
-[<severity>] sub=<owner>/<username> method=<HTTP_METHOD> url=<path> objOwner=<org> allowed=<true|false>
-```
-
-`severity` is `info` for allowed requests and `warning` for denied requests.
+Received traces are stored as `trace`-type entries. See [Entries — OpenTelemetry traces](/docs/entry/overview#opentelemetry-traces) for details on the payload format and viewer.
 
 ## Setting up permission logging
 
 1. Go to **Providers** → **Add**.
-2. Set **Category** to `Log` and **Type** to `Casdoor Permission Log`.
-3. Save the provider. Enforcement events for that organization are now recorded automatically as entries.
-4. View the results under **Entries** in the sidebar.
+2. Set **Category** to `Log`, **Type** to `Casdoor Permission Log`.
+3. Save. Enforcement events are recorded as entries immediately.
+4. View results under **Entries** in the sidebar.
