@@ -56,7 +56,7 @@ The syncer uses `unionid` as the username in Casdoor, matching the behavior of t
 
 The DingTalk syncer also synchronizes departments as Casdoor groups. For each department in your organization, the syncer fetches the department ID and display name and creates a corresponding group in Casdoor. Each user's department memberships are mapped to group assignments, so users are placed in the correct groups after sync.
 
-Department details are fetched individually via the DingTalk `topapi/v2/department/get` endpoint. If a department lookup fails, it is skipped and the rest of the sync continues.
+Department discovery is **recursive**: starting from the root department, the syncer calls `topapi/v2/department/listsub` for each parent department and traverses the full tree depth. This ensures that sub-departments nested at any level are included, not just the immediate children of root. Department details are then fetched individually via `topapi/v2/department/get`. If a department lookup fails, it is skipped and the rest of the sync continues.
 
 ## Running the Syncer
 
