@@ -95,41 +95,51 @@ These field-level permissions work in conjunction with the broader [Permission s
 
 ## Account Table
 
-Below are all the fields in the account item. For field descriptions, see [User](/docs/user/overview).
+Below are all the fields available as account items. Each field can be independently shown/hidden and assigned view/modify rules.
 
-- `Organization`
-- `ID`
-- `Name`
-- `Display name`
-- `Avatar`
-- `User type`
-- `Password`
-- `Email`
-- `Phone`
-- `Country code`
-- `Country/Region`
-- `Location`
-- `Affiliation`
-- `Title`
-- `ID card type`
-- `ID card`
-- `Real name` - The user's verified real name (locked after ID verification)
-- `ID verification` - Controls visibility and access to the verify identity button
-- `Homepage`
-- `Bio`
-- `Tag`
-- `Signup application`
-- `Register type`
-- `Register source`
-- `Roles`
-- `Permissions`
-- `Groups`
-- `3rd-party logins`
-- `Properties`
-- `Is admin`
-- `Is forbidden`
-- `Is deleted`
-- `Multi-factor authentication`
-- `WebAuthn credentials`
-- `Managed accounts`
-- `MFA accounts`
+| Field | Description |
+|-------|-------------|
+| `Organization` | The organization this user belongs to. |
+| `ID` | The user's globally unique identifier (UUID). |
+| `Name` | The user's unique login username within the organization. |
+| `Display name` | The name shown publicly on the user's profile. |
+| `Avatar` | The user's profile picture. |
+| `User type` | The category of the user account (e.g. normal user, service account). |
+| `Password` | The user's login password. |
+| `Email` | The user's email address, used for login and notifications. |
+| `Phone` | The user's phone number, used for login and SMS verification. |
+| `Country code` | The phone country/calling code (e.g. `+1` for the US), used together with `Phone`. |
+| `Country/Region` | The user's country or region. |
+| `Location` | The user's city or address. |
+| `Affiliation` | The user's company, school, or other organizational affiliation. |
+| `Title` | The user's job title or position. |
+| `ID card type` | The type of government-issued identity document (e.g. passport, national ID card, driver's license). |
+| `ID card` | The document number of the user's identity document. |
+| `Real name` | The user's verified legal name. Locked and cannot be changed after identity verification is completed. |
+| `ID verification` | Controls visibility of and access to the **Verify identity** button on the profile page. |
+| `Homepage` | The URL of the user's personal website or online profile. |
+| `Bio` | A short biography or personal description. |
+| `Tag` | One or more custom labels attached to the user, used for filtering or grouping. |
+| `Signup application` | The application the user originally signed up through. |
+| `Register type` | The method used to register the account (e.g. email, phone, OAuth). |
+| `Register source` | The channel or provider through which the user registered (e.g. Google, GitHub, invite link). |
+| `Roles` | The roles assigned to this user, which determine access within Casdoor. |
+| `Permissions` | The permissions explicitly granted to this user. |
+| `Groups` | The user groups this user belongs to. |
+| `3rd-party logins` | Linked third-party OAuth accounts (e.g. Google, GitHub, WeChat) used for social login. |
+| `Properties` | Custom key-value pairs for storing additional application-specific data about the user. |
+| `Balance` | The user's account balance, used for built-in payment or credit features. |
+| `Balance credit` | The user's credit balance, which may be spent before the main balance. |
+| `Balance currency` | The currency unit for the user's balance (e.g. `USD`, `CNY`). |
+| `Cart` | Items added to the user's shopping cart (for e-commerce integrations). |
+| `Score` | A point score assigned to the user, typically by application logic. |
+| `Karma` | A reputation score reflecting the user's activity or community standing. |
+| `Ranking` | The user's rank among all users, derived from score or other metrics. |
+| `Language` | The user's preferred display language for the Casdoor UI. |
+| `Is admin` | Whether the user has organization administrator privileges. |
+| `Is forbidden` | Whether the user account is banned; forbidden users cannot log in. |
+| `Is deleted` | Whether the user account has been soft-deleted (marked as deleted but retained in the database). |
+| `Multi-factor authentication` | The user's MFA settings and enrolled second-factor methods (e.g. TOTP app, SMS). |
+| `WebAuthn credentials` | Registered passkeys or hardware security keys (WebAuthn/FIDO2) for passwordless login. |
+| `Managed accounts` | Sub-accounts or delegated accounts that this user can manage on behalf of others. |
+| `MFA accounts` | External accounts linked specifically for multi-factor authentication purposes. |
