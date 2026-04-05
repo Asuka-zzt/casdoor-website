@@ -372,6 +372,15 @@ module.exports = {
             "provider/idv/alibaba-cloud",
           ],
         },
+        {
+          type: "category",
+          label: "Log",
+          collapsed: true,
+          link: {type: "generated-index"},
+          items: [
+            "provider/log/overview",
+          ],
+        },
       ],
     },
     {
