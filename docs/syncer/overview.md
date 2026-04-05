@@ -32,3 +32,7 @@ Syncers can map a wide set of attributes: profile data, credentials (passwords, 
 ## Sync and change detection
 
 Casdoor computes a **hash** per user from fields such as password and phone. When the hash for a given user `Id` changes, Casdoor treats that user as updated and applies the change. This allows **two-way sync** between the Casdoor user table and the source system.
+
+## Password handling
+
+When the remote source does not provide a password value for a user (the field is empty or not mapped), the syncer skips the password column entirely and leaves the existing password in Casdoor unchanged. This prevents remote systems from accidentally clearing passwords that users have set directly in Casdoor.

@@ -235,6 +235,7 @@ module.exports = {
           items: [
             "provider/email/overview",
             "provider/email/sendgrid",
+            "provider/email/resend",
             "provider/email/azureACS",
             "provider/email/brevo",
             "provider/email/mailhog",
@@ -443,6 +444,22 @@ module.exports = {
       link: {type: "generated-index"},
       items: [
         "ip-whitelist/ip-whitelist",
+      ],
+    },
+    {
+      type: "category",
+      label: "Sites",
+      link: {type: "generated-index"},
+      items: [
+        "site/overview",
+      ],
+    },
+    {
+      type: "category",
+      label: "Rules",
+      link: {type: "generated-index"},
+      items: [
+        "rule/overview",
       ],
     },
     {
