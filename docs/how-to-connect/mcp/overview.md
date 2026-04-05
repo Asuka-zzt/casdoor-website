@@ -60,7 +60,9 @@ Casdoor can also act as an MCP client and connect to external MCP servers. Navig
 | Field | Description |
 |-------|-------------|
 | **Name** | Unique identifier for this server entry |
+| **Display name** | Human-readable label shown in the UI |
 | **URL** | The external MCP server's endpoint |
+| **Application** | Casdoor application associated with this server (used for auth context) |
 | **Token** | Bearer token used to authenticate with the external server |
 | **Tools** | List of tools fetched from the server; each tool can be individually allowed or blocked |
 

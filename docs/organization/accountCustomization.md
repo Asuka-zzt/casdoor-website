@@ -150,5 +150,5 @@ Below are all the fields available as account items. Each field can be independe
 | `Managed accounts` | Sub-accounts or delegated accounts that this user can manage on behalf of others. |
 | `Face ID` | Enrolled face recognition data used for biometric login. |
 | `MFA accounts` | External accounts linked specifically for multi-factor authentication purposes. |
-| `Need update password` | Whether the user is required to change their password at next login. Admin-only. |
+| `Need update password` | Whether the user is required to change their password at next login. Admin-only. When set, the user is redirected to their **Account** page after sign-in and cannot navigate elsewhere until the password is updated. |
 | `IP whitelist` | IP addresses or CIDR ranges from which this user is allowed to sign in. Admin-only. |

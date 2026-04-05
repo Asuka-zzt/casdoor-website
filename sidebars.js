@@ -384,6 +384,14 @@ module.exports = {
     },
     {
       type: "category",
+      label: "Keys",
+      link: {type: "generated-index"},
+      items: [
+        "key/overview",
+      ],
+    },
+    {
+      type: "category",
       label: "SaaS management",
       link: {type: "generated-index"},
       items: [
