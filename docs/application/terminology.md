@@ -27,7 +27,7 @@ The application edit page is split into eight tabs. Fields below are grouped by 
 ## Authentication
 
 - **Cookie expire** — Session cookie lifetime in hours (default: 720). Without "Remember me", the session is capped at 24 h regardless.
-- **Default group** — Group automatically assigned to new users signing up through this application.
+- **Default group** — Group automatically assigned to new users signing up through this application, including both direct sign-up and OAuth-based registration. Providers and invitations can override this per-signup: the effective group follows the priority **invitation SignupGroup > provider SignupGroup > application Default group**.
 - **Enable signup** — Allow self sign-up. When off, only admins can create accounts.
 - **Disable signin** — Disable all sign-in for this application.
 - **Enable guest signin** — Allow unauthenticated guest access (not available for the `built-in` organization).
@@ -95,7 +95,7 @@ The application edit page is split into eight tabs. Fields below are grouped by 
 ## Security
 
 - **Token cert** — Certificate used to sign tokens issued by this application.
-- **Client cert** — Certificate used for mutual TLS client authentication.
+- **Client cert** — Certificate used to verify client identity. For mutual TLS it authenticates the client connection; for the JWT Bearer grant (RFC 7523), the public key in this certificate is used to verify the client's JWT assertion signature.
 - **Failed signin limit** — Number of consecutive failed sign-in attempts before the account is locked.
 - **Failed signin frozen time** — Lock duration in minutes after hitting the failed sign-in limit.
 - **Code resend timeout** — Seconds a user must wait before requesting another verification code (default: 60; set to 0 for the global default).

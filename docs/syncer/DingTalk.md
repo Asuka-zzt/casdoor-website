@@ -52,6 +52,26 @@ Account status mapping works inversely: when a DingTalk user is marked as inacti
 
 The syncer uses `unionid` as the username in Casdoor, matching the behavior of the OAuth provider. This ensures users who sign in via OAuth and those imported via the syncer maintain consistent identities. The `unionid` field provides a stable identifier that persists even when employee numbers or other attributes change.
 
+## Custom field mapping
+
+By default, the syncer maps a fixed set of DingTalk fields to Casdoor fields as shown in the table above. If your organization needs a different mapping, configure **Table columns** on the syncer. When at least one column is defined, the syncer uses your custom mapping instead of the defaults.
+
+Each column entry has a **Name** (DingTalk source field) and maps it to the corresponding Casdoor field. The supported DingTalk source field names are:
+
+| DingTalk field | Description |
+|----------------|-------------|
+| `userid` | User's unique identifier in DingTalk |
+| `unionid` | Cross-app stable identifier |
+| `name` | Display name |
+| `email` | Email address |
+| `mobile` | Mobile phone number |
+| `avatar` | Profile picture URL |
+| `title` | Job title |
+| `job_number` | Employee number |
+| `active` | Account status (inverted to `IsForbidden`) |
+
+When **Table columns** is empty, the syncer falls back to its built-in mapping.
+
 ## Department and group sync
 
 The DingTalk syncer also synchronizes departments as Casdoor groups. For each department in your organization, the syncer fetches the department ID and display name and creates a corresponding group in Casdoor. Each user's department memberships are mapped to group assignments, so users are placed in the correct groups after sync.

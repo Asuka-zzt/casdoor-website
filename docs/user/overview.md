@@ -87,6 +87,7 @@ Unique IDs for social platform logins:
 - `Slack`: User's unique identifier from Slack OAuth login
 - `Steam`: User's unique identifier from Steam OAuth login
 - `Ldap`: User's unique identifier from LDAP authentication
+- `Telegram`: User's unique identifier from Telegram OAuth login
 
 ## Organization admin privileges
 

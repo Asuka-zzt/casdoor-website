@@ -79,6 +79,7 @@ module.exports = {
         "how-to-connect/nextjs",
         "how-to-connect/nuxt",
         "how-to-connect/oauth",
+        "how-to-connect/oauth-consent",
         "how-to-connect/guest-auth",
         "how-to-connect/cas",
         {
