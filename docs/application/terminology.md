@@ -30,7 +30,7 @@ The application edit page is split into eight tabs. Fields below are grouped by 
 - **Default group** — Group automatically assigned to new users signing up through this application, including both direct sign-up and OAuth-based registration. Providers and invitations can override this per-signup: the effective group follows the priority **invitation SignupGroup > provider SignupGroup > application Default group**.
 - **Enable signup** — Allow self sign-up. When off, only admins can create accounts.
 - **Disable signin** — Disable all sign-in for this application.
-- **Enable guest signin** — Allow unauthenticated guest access (not available for the `built-in` organization).
+- **Enable guest signin** — Allow unauthenticated guest access by presenting `code=guest-user` to the token endpoint. Requires **Enable signup** to be on as well. Not available for the `built-in` organization. See [Guest authentication](/docs/how-to-connect/guest-auth).
 - **Enable exclusive signin** — Enforce one active session per user.
 - **Signin session** — Enable persistent sign-in session across browser restarts.
 - **Auto signin** — Automatically sign the user back in on revisit. Requires **Signin session** to be enabled first.
@@ -44,7 +44,7 @@ The application edit page is split into eight tabs. Fields below are grouped by 
 
 - **Client ID** — OAuth 2.0 client identifier.
 - **Client secret** — OAuth 2.0 client secret.
-- **Redirect URLs** — Allowed post-login redirect URIs.
+- **Redirect URLs** — Allowed post-login redirect URIs. Matching is URL-based: scheme, port, and path must match exactly, and the host may be the configured host or any subdomain of it (e.g. configuring `https://example.com/callback` also allows `https://api.example.com/callback`). Entries that are not valid URLs are matched as anchored regular expressions.
 - **Forced redirect origin** — When set, Casdoor forces all redirects to this origin.
 - **Grant types** — Enabled OAuth grant types: Authorization Code, Password, Client Credentials, Token, ID Token, Refresh Token, Device Code, JWT Bearer.
 - **Scopes** — Custom scopes for Agent-category apps (name, display name, description); exposed in OIDC discovery.

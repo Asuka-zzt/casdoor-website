@@ -149,6 +149,12 @@ Your application doesn't need any changes to support this. The authorization par
 
 For apps without a backend, use **Implicit Grant**. Enable it on the application, then redirect users to:
 
+:::caution
+
+The Implicit Grant token endpoint requires a valid `username` and `password`. Pure OAuth users (accounts created exclusively via a third-party provider with no local password set) cannot use this flow and will receive `invalid_grant`. Use the Authorization Code flow for social-login users.
+
+:::
+
 ```url
 https://<CASDOOR_HOST>/login/oauth/authorize?client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&response_type=token&scope=openid&state=STATE
 ```
