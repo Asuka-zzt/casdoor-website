@@ -59,6 +59,7 @@ Casdoor manages user accounts. Each user has the following properties:
 - `LastSigninIp`: The IP address from the user's last sign-in
 - `Roles`: An array of the user's roles (extended field, read-only via User API)
 - `Permissions`: An array of the user's permissions (extended field, read-only via User API)
+- `OriginalRefreshToken`: The refresh token returned by the OAuth provider during the last social login. Stored for use cases that require calling the provider's API on behalf of the user. This field is masked as `***` in all API responses for security.
 
 Unique IDs for social platform logins:
 

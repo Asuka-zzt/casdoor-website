@@ -13,7 +13,7 @@ An **Add to cart** button appears on product pages and in the [Product Store](/d
 
 Regular products are added at their listed price. For recharge products, specify the amount first—either a preset value or a custom amount. The system validates that custom amounts are greater than zero before adding.
 
-Subscription products do not support the cart; they are purchased individually through the pricing and plan flow.
+Subscription products can also be added to the cart. Each subscription is treated as a separate line item; the cart handles the order and payment flow for both regular and subscription products.
 
 ## Currency consistency
 
@@ -32,6 +32,6 @@ Each item has a **Buy** button to purchase that product alone or a **Delete** bu
 
 ## Placing orders from cart
 
-Cart items are purchased one at a time. Click **Buy** next to a product to start payment for that item. Bulk **Place Order** for all cart items is under development.
+Click **Buy** next to any item to purchase it individually. Use the **Place Order** button at the top of the cart to initiate payment for all items at once—each item is processed as a separate order.
 
-After purchasing an item, remove it from the cart manually or leave it for reference. The cart can also hold products of interest before purchase.
+After purchasing, remove items from the cart manually or leave them for reference.

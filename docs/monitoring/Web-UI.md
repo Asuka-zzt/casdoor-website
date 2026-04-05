@@ -18,3 +18,17 @@ Casdoor exposes runtime metrics on the **Sysinfo** page (e.g. [door.casdoor.com/
 - **API throughput** — total and per-API throughput
 
   ![API Throughput](/img/monitoring/web-ui/api_throughput.png)
+
+## Version info
+
+The `/api/get-version-info` endpoint returns the running binary's version:
+
+```json
+{
+  "version": "v1.x.x",
+  "commitId": "abc1234",
+  "commitOffset": 42
+}
+```
+
+This works in both source builds (where the info is read from the local git repository) and official release binaries (where `version`, `commitId`, and `commitOffset` are embedded at build time via linker flags). Deploying a pre-built binary from a release does not require a git repository to be present for this endpoint to return valid data.

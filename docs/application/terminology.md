@@ -86,7 +86,7 @@ authors: [ErikQQY]
 - **SignupUrl** — External sign-up URL if not using Casdoor sign-up.
 - **ForgetUrl** — Password recovery URL.
 - **AffiliationUrl** — Affiliation or invitation URL.
-- **TermsOfUse** — Terms of use URL or id.
+- **TermsOfUse** — Terms of use URL or id. Accepts up to 200 characters.
 
 ## Other
 
