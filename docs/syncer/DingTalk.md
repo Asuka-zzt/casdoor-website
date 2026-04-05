@@ -52,8 +52,14 @@ Account status mapping works inversely: when a DingTalk user is marked as inacti
 
 The syncer uses `unionid` as the username in Casdoor, matching the behavior of the OAuth provider. This ensures users who sign in via OAuth and those imported via the syncer maintain consistent identities. The `unionid` field provides a stable identifier that persists even when employee numbers or other attributes change.
 
+## Department and group sync
+
+The DingTalk syncer also synchronizes departments as Casdoor groups. For each department in your organization, the syncer fetches the department ID and display name and creates a corresponding group in Casdoor. Each user's department memberships are mapped to group assignments, so users are placed in the correct groups after sync.
+
+Department details are fetched individually via the DingTalk `topapi/v2/department/get` endpoint. If a department lookup fails, it is skipped and the rest of the sync continues.
+
 ## Running the Syncer
 
 Enable the syncer through the **Is enabled** toggle to activate scheduled synchronization. For immediate imports, click the **Sync** button to trigger a manual synchronization run.
 
-The syncer automatically retrieves users from all departments in your DingTalk organization, handling deduplication when users belong to multiple departments. Pagination is managed internally, ensuring complete user directory synchronization regardless of organization size.
+The syncer automatically retrieves users and departments from all parts of your DingTalk organization, handling deduplication when users belong to multiple departments. Pagination is managed internally, ensuring complete synchronization regardless of organization size.

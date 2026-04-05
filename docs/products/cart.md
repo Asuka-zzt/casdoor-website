@@ -11,6 +11,8 @@ The shopping cart collects products for purchase in a single order. Add items to
 
 An **Add to cart** button appears on product pages and in the [Product Store](/docs/products/product-store). Added products are stored in the user's cart and persist across sessions, so users can add items and complete the purchase later.
 
+Before adding, use the quantity stepper next to the button to set how many units you want. The same stepper is also available on the product buy page when placing an order directly.
+
 Regular products are added at their listed price. For recharge products, specify the amount first—either a preset value or a custom amount. The system validates that custom amounts are greater than zero before adding.
 
 Subscription products can also be added to the cart. Each subscription is treated as a separate line item; the cart handles the order and payment flow for both regular and subscription products.
@@ -28,12 +30,14 @@ Open the cart via **Cart** in the Business & Payments section. The cart page sho
 - Price and currency
 - Quantity (managed automatically)
 
-Each item has a **Buy** button to purchase that product alone or a **Delete** button to remove it. Quantities are tracked automatically—adding the same product at the same price increases the quantity instead of creating duplicate rows.
+Each item has a **Buy** button to purchase that product alone or a **Delete** button to remove it. Quantities are tracked automatically—adding the same product at the same price increases the quantity instead of creating duplicate rows. You can also adjust quantities directly in the cart using the inline stepper.
 
 To remove all items at once, click **Clear** at the top of the cart. A confirmation prompt is shown before the cart is emptied.
 
 ## Placing orders from cart
 
-Click **Buy** next to any item to purchase it individually. Use the **Place Order** button at the top of the cart to initiate payment for all items at once—each item is processed as a separate order.
+Click **Buy** next to any item to purchase it individually. Use the **Place Order** button at the top of the cart to initiate payment for all items at once—each item is processed as a separate order. After all orders are placed, the cart is cleared automatically.
 
-After purchasing, remove items from the cart manually or leave them for reference.
+## Floating cart button
+
+A cart icon is shown in the bottom-right corner of product and store pages. It displays the current number of items in the cart and takes you directly to the cart page when clicked.
