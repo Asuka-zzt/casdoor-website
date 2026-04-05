@@ -322,6 +322,8 @@ The response returns a new token tied to the same user as your subject token:
 
 For example, an API gateway might exchange a broad-scoped access token for a narrower one before forwarding requests to a downstream microservice. This pattern—called scope downscoping—ensures each service gets only the permissions it needs, rather than inheriting full access from the original token.
 
+**Audience binding:** Casdoor validates the `subject_token` using the certificate of its issuing application (identified by the `azp` claim), not the requesting client's certificate. If the requesting client differs from the token's issuer, the token's `aud` claim must include the requesting client's ID; otherwise the exchange is rejected with `invalid_grant`. This prevents one application from exchanging another application's tokens without explicit audience authorization (RFC 8693 §2.1).
+
 ### JWT Bearer Grant
 
 JWT Bearer (RFC 7523) allows a client to obtain an access token by presenting a signed JWT assertion instead of a client secret. This is useful for service-to-service calls where the client holds a private key and wants to authenticate without sharing a long-lived secret.

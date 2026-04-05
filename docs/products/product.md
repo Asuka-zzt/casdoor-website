@@ -54,6 +54,14 @@ Call the API endpoint: `api/notify-payment/{paymentOwner}/{paymentName}` using t
 
 :::
 
+## API
+
+### buy-product (deprecated)
+
+The `/api/buy-product` endpoint is retained for backwards compatibility with integrations built against older Casdoor versions. It internally calls `place-order` followed by `pay-order` and returns the same payment response.
+
+**New integrations should call `place-order` and `pay-order` separately.** The two-step flow gives you more control: you can inspect the order before initiating payment and handle each step's errors independently.
+
 ## Access Controls
 
 Products, orders, payments, plans, pricing, and subscriptions enforce admin-only editing permissions. Non-admin users can view these resources but cannot create, modify, or delete them. When viewing as a non-admin, action buttons and form controls are disabled to prevent unauthorized changes.

@@ -66,7 +66,7 @@ Casdoor can also act as an MCP client and connect to external MCP servers. Navig
 | **Token** | Bearer token used to authenticate with the external server |
 | **Tools** | List of tools fetched from the server; each tool can be individually allowed or blocked |
 
-When you save the configuration, Casdoor automatically fetches the tool list from the remote server and stores it. Use the **Sync** button on the server edit page to refresh the tool list at any time without re-saving the full configuration. The sync operation preserves the `IsAllowed` setting for any tools that already exist; new tools discovered during sync are enabled by default.
+When you save the configuration, Casdoor automatically fetches the tool list from the remote server and stores it. Use the **Sync** button on the server edit page to refresh the tool list at any time without re-saving the full configuration. The sync operation preserves the `IsAllowed` setting for any tools that already exist; new tools discovered during sync are enabled by default. Use the **Clear** button (next to Sync) to remove all stored tools for the server without fetching new ones—useful when you want to reset the tool list before re-syncing or decommissioning a server.
 
 After initialization, send a notification to indicate the client is ready:
 
