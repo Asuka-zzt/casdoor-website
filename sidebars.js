@@ -81,6 +81,7 @@ module.exports = {
         "how-to-connect/oauth",
         "how-to-connect/oauth-consent",
         "how-to-connect/guest-auth",
+        "how-to-connect/kerberos",
         "how-to-connect/cas",
         {
           type: "category",

@@ -40,6 +40,16 @@ When **Enable groups** is turned on, Casdoor queries the LDAP directory for grou
 
 Group sync runs before user sync in each auto-sync cycle so that groups exist before user membership is evaluated. If a group lookup fails, the error is logged and the rest of the sync continues.
 
+## LDAP server attribute filtering
+
+By default, Casdoor's built-in LDAP server exposes all standard attributes for each user entry. You can restrict which attributes are returned by setting **LDAP attributes** on the organization edit page.
+
+When the list is non-empty, only the selected attributes are included in search result entries. The available attributes are:
+
+`uid`, `cn`, `mail`, `email`, `mobile`, `displayName`, `givenName`, `sn`, `uidNumber`, `gidNumber`, `homeDirectory`, `loginShell`, `gecos`, `sshPublicKey`, `memberOf`, `title`, `userPassword`, `c`, `co`
+
+Leave the list empty to return all attributes (default behavior).
+
 ## Default group
 
 Group to assign to users after sync.

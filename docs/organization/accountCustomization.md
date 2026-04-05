@@ -133,7 +133,7 @@ Below are all the fields available as account items. Each field can be independe
 | `3rd-party logins` | Linked third-party OAuth accounts (e.g. Google, GitHub, WeChat) used for social login. |
 | `Properties` | Custom key-value pairs for storing additional application-specific data about the user. |
 | `Balance` | The user's account balance, used for built-in payment or credit features. |
-| `Balance credit` | Overdraft limit for the user's balance. A value of `50` means the user's balance can go as low as `-50` before transactions are blocked. Set to `0` to disable overdraft (balance cannot go negative). |
+| `Balance credit` | Minimum balance floor for the user's account. Must be ≤ 0. Set to `0` (default) to prevent the balance from going negative. Set to a negative value (e.g. `-50`) to allow the balance to drop as low as that amount before transactions are blocked. |
 | `Balance currency` | The currency unit for the user's balance (e.g. `USD`, `CNY`). |
 | `Cart` | Items added to the user's shopping cart (for e-commerce integrations). |
 | `Score` | A point score assigned to the user, typically by application logic. |

@@ -75,3 +75,13 @@ When an application has at least one custom scope configured, Casdoor validates 
 ```
 
 Applications with **no scopes configured** accept any `scope` value, preserving backward compatibility. Once you define at least one scope, only the scopes you've listed are accepted.
+
+## Regex and wildcard scopes
+
+Clients can request scopes using **regular expression patterns** when their scope string contains regex metacharacters (`.`, `*`, `+`, `?`, `^`, `$`, `{`, `}`, `(`, `)`, `|`, `[`, `]`, `\`).
+
+When a pattern is detected, Casdoor expands it by matching against all configured scope names. All matching scope names replace the pattern in the final granted scope. Literal scope names (no metacharacters) are validated by exact match as before.
+
+For example, if an application defines `files:read`, `files:write`, and `db:query`, a client requesting `scope=files:.*` will receive both `files:read` and `files:write`.
+
+If a pattern matches nothing, the request is rejected as `invalid_scope`.
