@@ -176,6 +176,14 @@ go build
 casdoor.exe
 ```
 
+To load a config file from a non-default path, pass the `--config` flag:
+
+```bash
+./casdoor --config /etc/casdoor/app.conf
+```
+
+The `--config` flag accepts an absolute or relative path and fully replaces the default `conf/app.conf` lookup.
+
 #### Frontend
 
 Build static assets:
