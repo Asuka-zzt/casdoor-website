@@ -40,7 +40,7 @@ Orders progress through these states based on payment status:
 
 - **Created**: Order initialized but payment not yet completed
 - **Paid**: Payment successfully processed
-- **PaymentFailed**: Payment attempt failed with an error
+- **Failed**: Payment attempt failed with an error
 - **Canceled**: Payment or order was cancelled
 - **Timeout**: Payment timed out before completion
 - **Delivered**: Product or service delivered to the user
