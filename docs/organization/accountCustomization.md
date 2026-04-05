@@ -103,6 +103,8 @@ Below are all the fields available as account items. Each field can be independe
 | `ID` | The user's globally unique identifier (UUID). |
 | `Name` | The user's unique login username within the organization. |
 | `Display name` | The name shown publicly on the user's profile. |
+| `First name` | The user's given name. |
+| `Last name` | The user's family name. |
 | `Avatar` | The user's profile picture. |
 | `User type` | The category of the user account (e.g. normal user, service account). |
 | `Password` | The user's login password. |
@@ -115,6 +117,7 @@ Below are all the fields available as account items. Each field can be independe
 | `Title` | The user's job title or position. |
 | `ID card type` | The type of government-issued identity document (e.g. passport, national ID card, driver's license). |
 | `ID card` | The document number of the user's identity document. |
+| `ID card info` | Additional identity document details (e.g. issue date, expiry). Only visible to the user themselves. |
 | `Real name` | The user's verified legal name. Locked and cannot be changed after identity verification is completed. |
 | `ID verification` | Controls visibility of and access to the **Verify identity** button on the profile page. |
 | `Homepage` | The URL of the user's personal website or online profile. |
@@ -123,6 +126,7 @@ Below are all the fields available as account items. Each field can be independe
 | `Signup application` | The application the user originally signed up through. |
 | `Register type` | The method used to register the account (e.g. email, phone, OAuth). |
 | `Register source` | The channel or provider through which the user registered (e.g. Google, GitHub, invite link). |
+| `API key` | The user's API access key. Only visible and editable by the user themselves. |
 | `Roles` | The roles assigned to this user, which determine access within Casdoor. |
 | `Permissions` | The permissions explicitly granted to this user. |
 | `Groups` | The user groups this user belongs to. |
@@ -140,6 +144,11 @@ Below are all the fields available as account items. Each field can be independe
 | `Is forbidden` | Whether the user account is banned; forbidden users cannot log in. |
 | `Is deleted` | Whether the user account has been soft-deleted (marked as deleted but retained in the database). |
 | `Multi-factor authentication` | The user's MFA settings and enrolled second-factor methods (e.g. TOTP app, SMS). |
+| `MFA items` | The list of individual MFA methods enrolled by the user. |
 | `WebAuthn credentials` | Registered passkeys or hardware security keys (WebAuthn/FIDO2) for passwordless login. |
+| `Last change password time` | Timestamp of the user's most recent password change. Admin-only. |
 | `Managed accounts` | Sub-accounts or delegated accounts that this user can manage on behalf of others. |
+| `Face ID` | Enrolled face recognition data used for biometric login. |
 | `MFA accounts` | External accounts linked specifically for multi-factor authentication purposes. |
+| `Need update password` | Whether the user is required to change their password at next login. Admin-only. |
+| `IP whitelist` | IP addresses or CIDR ranges from which this user is allowed to sign in. Admin-only. |
