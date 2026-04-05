@@ -9,7 +9,7 @@ You can customize **account items** per organization: whether each field is visi
 
 ## Configuring account items
 
-Each account item has four settings:
+Each account item has five settings:
 
 | Column Name | Selectable Value | Description |
 | :---------: | :--------------: | ----------- |
@@ -17,6 +17,17 @@ Each account item has four settings:
 |   Visible   | `True` / `False` | Select whether this account item is visible on the user home page. |
 |  ViewRule  |    Rule Items    | Select a rule to use when viewing the account item. Controls who can **view** this field. |
 | ModifyRule |    Rule Items    | Select a rule to use when modifying the account item. Controls who can **edit** this field. |
+|    Tab      |        -         | Tab label to group this item under on the user edit page. Items with the same tab value are shown together; items with no tab value appear in the default (un-tabbed) section. |
+
+### Grouping fields into tabs
+
+Setting a **Tab** value on account items splits the user edit page into labelled tabs. All items that share the same tab string are grouped under one tab. Items with an empty tab value always appear first, outside any tab group.
+
+For example, to create a "Contact" tab containing Email, Phone, and Location:
+
+1. Open your organization and scroll to **Account items**.
+2. Set the **Tab** column to `Contact` for the Email, Phone, and Location rows.
+3. Save. The user edit page will show a "Contact" tab containing those three fields.
 
 ### View rule and modify rule
 

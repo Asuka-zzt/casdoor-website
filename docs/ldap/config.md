@@ -40,3 +40,9 @@ Group to assign to users after sync.
 :::caution
 If an LDAP user’s `uid` equals the `name` of an existing user in the organization, Casdoor creates a new user with a modified `name` (uid + random suffix). That user may not be able to sign in via LDAP because the LDAP server has no such `uid`. Avoid reusing existing Casdoor usernames as LDAP uids.
 :::
+
+## Phone number normalization
+
+When users are synced from LDAP, Casdoor normalizes the imported phone number using [libphonenumber](https://github.com/nyaruka/phonenumbers). If the LDAP entry includes a country code (via the `CountryCode` attribute), it is used as the region hint to parse the number. Country names such as `"China"` are resolved to their two-letter ISO codes (`"CN"`) automatically; values that are not valid ISO codes are ignored.
+
+After parsing, the phone is stored as the national-format digits only (without country prefix or formatting characters). Numbers that fail to parse or are invalid are stored as-is.
