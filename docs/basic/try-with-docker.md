@@ -27,10 +27,10 @@ Two images are available on Docker Hub:
 
 | Image | Contents | Use case |
 |-------|----------|----------|
-| [casdoor-all-in-one](https://hub.docker.com/r/casbin/casdoor-all-in-one) | Casdoor + embedded MySQL | Quick try-out only; **not for production** |
+| [casdoor-all-in-one](https://hub.docker.com/r/casbin/casdoor-all-in-one) | Casdoor + embedded SQLite | Quick try-out only; **not for production** |
 | [casdoor](https://hub.docker.com/r/casbin/casdoor) | Casdoor only | Connect to your own database; suitable for production |
 
-**casdoor-all-in-one** includes the Casdoor binary, a MySQL database, and default config so Casdoor can be run with one or two commands. Use it only for testing.
+**casdoor-all-in-one** includes the Casdoor binary and a file-based SQLite database with default config, so Casdoor can be run with a single command and no external dependencies. Use it only for testing.
 
 ### Option 1: All-in-one (toy database)
 

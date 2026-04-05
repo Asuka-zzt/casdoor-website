@@ -251,6 +251,7 @@ module.exports = {
             "provider/sms/amazonSns",
             "provider/sms/acs",
             "provider/sms/alibabaCloud",
+            "provider/sms/pnvs",
           ],
         },
         {

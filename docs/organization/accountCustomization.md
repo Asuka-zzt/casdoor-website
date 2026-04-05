@@ -7,6 +7,15 @@ authors: [leo220yuyaodog]
 
 You can customize **account items** per organization: whether each field is visible and who can view or modify it. These settings apply to every member’s profile/home page in that organization.
 
+## Account menu layout
+
+The **Account menu** setting on the organization controls how the user edit page navigation is rendered:
+
+- **Horizontal** (default) — Fields grouped into tabs displayed across the top of the page.
+- **Vertical** — Fields grouped into a sidebar menu on the left side of the page, useful for organizations with many account item tabs.
+
+Set this in the organization edit page under **Account menu**.
+
 ## Configuring account items
 
 Each account item has five settings:
