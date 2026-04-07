@@ -4,7 +4,6 @@ description: Connect Claude Desktop to Casdoor’s MCP server with OAuth.
 keywords: [MCP, Claude Desktop, OAuth, PKCE]
 authors: [hsluoyz]
 ---
-
 Connect Claude Desktop to Casdoor’s MCP server so Claude can manage your applications, users, and resources via natural language.
 
 ## Prerequisites
@@ -24,17 +23,11 @@ Create a Casdoor application for Claude Desktop’s OAuth:
    - **Name**: `claude-desktop-mcp` (or your preferred name)
    - **Display Name**: `Claude Desktop MCP Client`
    - **Organization**: Select your organization
-   - **Redirect URIs**: Add these OAuth callback URLs:
+   - **Redirect URIs**: Add the OAuth callback URL:
 
      ```text
-     http://127.0.0.1:*/callback
-     http://localhost:*/callback
+     https://claude.ai/api/mcp/auth_callback
      ```
-
-     :::tip
-     The wildcard `*` allows Claude Desktop to use any available port for the OAuth callback.
-     :::
-
 4. **Grant Types**: Enable `Authorization Code` and optionally `Refresh Token`
 5. **Enable PKCE**: Check this option for enhanced security
 6. **Token Format**: `JWT` (recommended)
@@ -44,58 +37,21 @@ Create a Casdoor application for Claude Desktop’s OAuth:
    :::info
    See [Application categories](/docs/application/categories) for Category and Type options.
    :::
-
 9. Click **Save** and note the **Client ID** for the next step.
 
 ## Step 2: Configure Claude Desktop
 
-Claude Desktop stores MCP server configurations in a JSON file. The location depends on your operating system:
+Claude Desktop stores remote MCP server configurations by adding a custom connector.
 
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-- **Linux**: `~/.config/Claude/claude_desktop_config.json`
+### Steps
 
-Open this file in a text editor and add your Casdoor MCP server configuration:
-
-```json
-{
-  "mcpServers": {
-    "casdoor": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-oauth",
-        "https://your-casdoor.com/api/mcp"
-      ],
-      "env": {
-        "OAUTH_CLIENT_ID": "your-client-id",
-        "OAUTH_SCOPES": "read:application write:application openid profile email"
-      }
-    }
-  }
-}
-```
-
-Replace the following placeholders:
-
-- `your-casdoor.com` → Your Casdoor instance domain
-- `your-client-id` → The Client ID from Step 1
-
-:::note
-The `@modelcontextprotocol/server-oauth` package handles OAuth flows automatically. Claude Desktop will open your browser to complete authentication.
-:::
-
-### Configuring Scopes
-
-The `OAUTH_SCOPES` environment variable controls what permissions Claude has. Common scopes include:
-
-- `read:application` - View applications
-- `write:application` - Create, update, delete applications
-- `read:user` - View users
-- `write:user` - Create, update, delete users
-- `openid profile email` - Basic user information (required for OAuth)
-
-See [Authorization and Scopes](/docs/how-to-connect/mcp/authorization) for the complete list of available scopes.
+1. Sign in to Claude Desktop.
+2. Click **Custom**.
+3. Click **Add Custom Connector**.
+4. Enter the following information:
+   - **MCP server name**
+   - **Your remote MCP server URL**
+   - **Client ID**
 
 ## Step 3: Restart Claude Desktop
 
@@ -115,7 +71,7 @@ The first time Claude Desktop connects to your Casdoor MCP server:
 3. After logging in, you'll see a **Consent Screen** asking you to authorize Claude Desktop
 4. The consent screen shows the requested scopes (permissions)
 5. Click **Authorize** to grant access
-6. Your browser will redirect to `http://127.0.0.1:<port>/callback` and show a success message
+6. Your browser will redirect to `https://claude.ai/api/mcp/auth_callback` and show a success message
 7. Return to Claude Desktop - the connection is now established
 
 :::tip
@@ -168,7 +124,6 @@ I found the following applications in your Casdoor instance:
   http://127.0.0.1:*/callback
   http://localhost:*/callback
   ```
-
 - The wildcard `*` is crucial - it allows any port
 
 ### Issue: "CORS error" in browser console
