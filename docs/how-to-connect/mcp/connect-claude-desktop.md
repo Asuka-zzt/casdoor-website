@@ -28,6 +28,7 @@ Create a Casdoor application for Claude Desktop’s OAuth:
      ```text
      https://claude.ai/api/mcp/auth_callback
      ```
+
 4. **Grant Types**: Enable `Authorization Code` and optionally `Refresh Token`
 5. **Enable PKCE**: Check this option for enhanced security
 6. **Token Format**: `JWT` (recommended)
@@ -124,6 +125,7 @@ I found the following applications in your Casdoor instance:
   http://127.0.0.1:*/callback
   http://localhost:*/callback
   ```
+
 - The wildcard `*` is crucial - it allows any port
 
 ### Issue: "CORS error" in browser console
