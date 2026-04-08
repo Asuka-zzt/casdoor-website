@@ -8,13 +8,13 @@ authors: [hsluoyz]
 
 ## Agent properties
 
-| Field                   | Description                                             |
-| ----------------------- | ------------------------------------------------------- |
-| **Name**          | Unique identifier for the agent within the organization |
-| **Display name**  | Human-readable label shown in the UI                    |
-| **Listening URL** | The agent's endpoint URL                                |
-| **Token**         | Bearer token used to authenticate requests to the agent |
-| **Application**   | The Casdoor application this agent is associated with   |
+| Field | Description |
+|-------|-------------|
+| **Name** | Unique identifier for the agent within the organization |
+| **Display name** | Human-readable label shown in the UI |
+| **Listening URL** | The agent's endpoint URL |
+| **Token** | Bearer token used to authenticate requests to the agent |
+| **Application** | The Casdoor application this agent is associated with |
 
 ## Managing agents
 
