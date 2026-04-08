@@ -40,16 +40,17 @@ This guide configures Casdoor as a SAML identity provider for **Tencent Cloud** 
 
 :::info
 Replace placeholders using:
-- **{'{'}AccountID{'}'}**: Tencent Cloud account ID â€” [Account Information](https://console.cloud.tencent.com/developer)
-- **{'{'}RoleName{'}'}**: Role name â€” [Roles](https://console.cloud.tencent.com/cam/role)
-- **{'{'}ProviderName{'}'}**: SAML identity provider name â€” [Identity Providers](https://console.cloud.tencent.com/cam/idp)
+
+- **{'{'}AccountID{'}'}**: Tencent Cloud account ID â€?[Account Information](https://console.cloud.tencent.com/developer)
+- **{'{'}RoleName{'}'}**: Role name â€?[Roles](https://console.cloud.tencent.com/cam/role)
+- **{'{'}ProviderName{'}'}**: SAML identity provider name â€?[Identity Providers](https://console.cloud.tencent.com/cam/idp)
 
 See [Tencent Cloud SAML IdP documentation](https://cloud.tencent.com/document/product/598/38058).
 :::
 
 ## Log in via SAML
 
-Flow: User â†’ Tencent Cloud (unauthenticated) â†’ redirect to Casdoor â†’ sign in â†’ Tencent Cloud (authenticated). The initial redirect URL can be built from SAML metadata and IdP SSO URL. Example (Go) that fetches metadata, builds the auth URL, and prints it:
+Flow: User â†?Tencent Cloud (unauthenticated) â†?redirect to Casdoor â†?sign in â†?Tencent Cloud (authenticated). The initial redirect URL can be built from SAML metadata and IdP SSO URL. Example (Go) that fetches metadata, builds the auth URL, and prints it:
 
 ```go
 func main() {

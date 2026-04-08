@@ -23,7 +23,7 @@ Set the policy on the application edit page under the **OIDC/OAuth** tab.
 
 When the policy requires consent and the user has not previously approved the requested scopes, Casdoor redirects the browser to:
 
-```
+```text
 /consent/<application-name>?<original-authorization-parameters>
 ```
 
