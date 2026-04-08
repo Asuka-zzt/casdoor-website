@@ -4,6 +4,7 @@ description: Register and manage AI agents in Casdoor.
 keywords: [agent, AI, LLM, A2A]
 authors: [hsluoyz]
 ---
+
 **Agents** are AI agent endpoints registered in Casdoor. Each agent record stores the connection details Casdoor needs to route requests to or authenticate against an external AI agent service.
 
 ## Agent properties
